@@ -1,11 +1,12 @@
  import React from 'react'
 import NavBar from './Components/NavBar'
 import { AiFillPlusCircle } from "react-icons/ai";
-import { collection} from 'firebase/firestore'
+import { collection, getDocs} from 'firebase/firestore'
 
 import { FiSearch } from "react-icons/fi";
 import { useState } from 'react';
 import { useEffect } from 'react';
+import {db} from './Config/firebase'
 
 
 const App = () => {
@@ -16,7 +17,15 @@ const App = () => {
 		const getContacts = async () => {
 			try {
 
-				const contactsCollection = collection
+				const contactsCollection = collection(db,"contacts")
+				const contatcsSnapshot = await getDocs(contactsCollection)
+				 const contactLists = contatcsSnapshot.docs.map((doc) => {
+            return {
+              id: doc.id,
+              ...doc.data(),
+            };
+				})
+				setContact(contactLists)
 				
 			} catch (error) {
 				
