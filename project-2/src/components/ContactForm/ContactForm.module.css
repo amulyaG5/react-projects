@@ -1,0 +1,40 @@
+.container {
+  display: flex;
+  max-width: 1000px;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttonContainer {
+  display: flex;
+  gap: 32px;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 23px;
+  position: relative;
+}
+
+.formContainer input {
+  height: 40px;
+  border: 1px solid var(--GRAY, #5a5959);
+  background: #fff;
+  padding: 0 8px;
+}
+
+.formContainer textarea {
+  padding: 8px;
+}
+
+.formContainer label {
+  position: absolute;
+  top: -14px;
+  left: 10px;
+  background-color: white;
+  padding: 0 10px;
+  font-size: 14px;
+}
